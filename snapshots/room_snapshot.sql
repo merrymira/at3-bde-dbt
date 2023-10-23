@@ -1,4 +1,4 @@
-{% snapshot snapshot_host %}
+{% snapshot room_snapshot %}
 
 {{
         config(
@@ -12,11 +12,8 @@
   select 
     listing_id,
     scraped_date,
-    host_id,
-    host_name,
-    host_since,
-    host_is_superhost,
-    host_neighbourhood
+    room_type,
+    accommodates
   from {{ source('raw', 'listings') }}
 
 {% endsnapshot %}

@@ -1,4 +1,4 @@
-{% snapshot snapshot_listings %}
+{% snapshot property_snapshot %}
 
 {{
         config(
@@ -7,8 +7,12 @@
           unique_key='listing_id',
           updated_at='scraped_date',
         )
-    }}
+}}
 
-  select * from {{ source('raw', 'listings') }}
+  select 
+    listing_id,
+    scraped_date,
+    property_type
+  from {{ source('raw', 'listings') }}
 
 {% endsnapshot %}
