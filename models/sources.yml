@@ -14,3 +14,4 @@ sources:
       - name: snapshot_listings
       - name: snapshot_property
       - name: snapshot_room
+      - name: listings_stg

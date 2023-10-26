@@ -1,6 +1,6 @@
 {{
     config(
-        unique_key='dbt_scd_id'
+        unique_key='property_type'
     )
 }}
 
@@ -12,7 +12,7 @@ source  as (
 
 renamed as (
     select
-        DISTINCT property_type
+        distinct property_type
     from source
 )
 

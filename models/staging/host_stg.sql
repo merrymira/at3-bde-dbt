@@ -1,6 +1,6 @@
 {{
     config(
-        unique_key='dbt_scd_id'
+        unique_key='host_id'
     )
 }}
 
@@ -10,21 +10,22 @@ source  as (
     select * from {{ ref('host_snapshot') }}
 ),
 
-renamed as (
-    select
-        DISTINCT listing_id,
-        host_id,
+renamed AS (
+    SELECT
+        distinct host_id,
         host_name,
         host_since,
         host_is_superhost,
-        host_neighbourhood
-    from source
+        CASE WHEN host_neighbourhood = 'NaN' THEN 'Unknown' ELSE host_neighbourhood END AS host_neighbourhood
+    FROM source
     where not (
-        host_name = 'NaN'
-        and host_since = 'NaN'
-        and host_is_superhost = 'NaN'
-        and host_neighbourhood = 'NaN'
+        host_name = 'NaN' 
+        and host_since = 'NaN' 
+        and host_is_superhost = 'NaN' 
     )
 )
 
 select * from renamed
+
+
+

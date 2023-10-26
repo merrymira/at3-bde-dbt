@@ -12,8 +12,7 @@
   select 
     listing_id,
     scraped_date,
-    room_type,
-    accommodates
+    room_type
   from {{ source('raw', 'listings') }}
 
 {% endsnapshot %}

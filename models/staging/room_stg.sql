@@ -1,6 +1,6 @@
 {{
     config(
-        unique_key='dbt_scd_id'
+        unique_key='room_type'
     )
 }}
 
@@ -12,8 +12,7 @@ source  as (
 
 renamed as (
     select
-        room_type,
-        accommodates
+        distinct room_type 
     from source
 )
 
