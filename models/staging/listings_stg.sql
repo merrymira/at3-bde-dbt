@@ -15,7 +15,7 @@ renamed as (
         listing_id,
         scrape_id,
         scraped_date,
-        host_id
+        host_id,
         host_name,
         host_since,
         host_is_superhost,

@@ -12,7 +12,7 @@ source  as (
 
 renamed as (
     select
-        distinct room_type 
+        room_type 
     from source
 )
 

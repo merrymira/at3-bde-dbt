@@ -14,5 +14,6 @@
     scraped_date,
     property_type
   from {{ source('raw', 'listings') }}
+  group by listing_id, scraped_date, property_type
 
 {% endsnapshot %}

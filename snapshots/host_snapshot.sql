@@ -18,5 +18,6 @@
     host_is_superhost,
     host_neighbourhood
   from {{ source('raw', 'listings') }}
+  group by listing_id, scraped_date, host_id, host_name, host_since, host_is_superhost, host_neighbourhood
 
 {% endsnapshot %}

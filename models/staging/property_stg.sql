@@ -12,7 +12,7 @@ source  as (
 
 renamed as (
     select
-        distinct property_type
+        property_type
     from source
 )
 
